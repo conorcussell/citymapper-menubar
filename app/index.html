@@ -1,13 +1,13 @@
 <meta charset='utf-8'>
-<link rel="stylesheet" type="text/css" href="basscss.css">
 <link rel="stylesheet" type="text/css" href="style.css">
-<div class="flex absolute searches">
-  <input class='rounded border-none mr2 h4 inline-block p1 from-search js-search' type='text' placeholder='Leaving from?' aria-label='Enter postcode'>
-  <input class='rounded border-none h4 inline-block p1 js-wtf' type='text' placeholder='Going to?' >
+<div class="searches">
+  <input class='search-input from-input js-from-input' type='text' placeholder='Leaving from?' aria-label='Enter start postcode'>
+  <input class='search-input to-input js-to-input' type='text' placeholder='Going to?' aria-label='Enter end postcode'>
 </div>
-<div class="absolute results">
-  <div class="js-results">
-
+<a class="go-btn js-go">Go</a>
+<div class="results">
+  <div class="minutes-away js-mins">
   </div>
 </div>
+<a class="citymapper-link js-city-mapper " style="display:none;" href="">Open in Citymapper</a>
 <script type="text/javascript" src="route.js"></script>

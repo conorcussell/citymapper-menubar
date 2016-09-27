@@ -1,31 +1,29 @@
 {
-  "name": "mojibar",
-  "version": "2.2.2",
-  "description": "A menubar app adaptation of Emoji searcher.",
+  "name": "citymapper-menubar",
+  "version": "0.0.1",
+  "description": "A menubar app for Citymapper journey times",
   "main": "index.js",
   "dependencies": {
-    "emojilib": "2.0.2",
     "jquery": "^3.1.1",
-    "menubar": "^5.1.0"
+    "menubar": "^5.1.0",
+    "open": "0.0.5"
   },
   "devDependencies": {
     "electron-packager": "^7.4.0",
-    "electron-prebuilt": "^1.3.2",
-    "standard": "^4.5.3"
+    "electron-prebuilt": "^1.3.2"
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . Mapper --platform=darwin --arch=x64 --version=1.3.2 --overwrite --icon=mojibar",
-    "test": "standard index.js app/search.js app/settings.js"
+    "build": "electron-packager . Mapper --platform=darwin --arch=x64 --version=1.3.2 --overwrite --icon=citymapper"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/muan/mojibar.git"
+    "url": "git+https://github.com/conorcussell/citymapper-menubar.git"
   },
-  "author": "Mu-An Chiou <me@muanchiou.com>",
+  "author": "Conor Cussell <contact@conorcussell.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/muan/mojibar/issues"
+    "url": "https://github.com/conorcussell/citymapper-menubar"
   },
-  "homepage": "https://github.com/muan/mojibar#readme"
+  "homepage": "https://github.com/muan/citymapper-menubar#readme"
 }
