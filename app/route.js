@@ -39,8 +39,21 @@ function updateTo(e) {
 const getTime = document.querySelector('.js-go');
 getTime.addEventListener('click', getTravelTime);
 
+function checkApiCoverage(coord) {
+  console.log()
+  const url = `https://developer.citymapper.com/api/1/singlepointcoverage/?coord=${coord}&key=${citymapperApiKey}`;
+  return new Promise((resolve, reject) => {
+    $.getJSON(url, (response) => {
+      if (response.points[0].covered) {
+        resolve();
+      } else {
+        reject('Sorry, we have no data for that journey!');
+      }
+    });
+  });
+}
+
 function routeApiUrl(startcoord, endcoord) {
-  console.log(citymapperApiKey);
   return `https://developer.citymapper.com/api/1/traveltime/?startcoord=${startcoord}&endcoord=${endcoord}&key=${citymapperApiKey}`;
 }
 
@@ -51,12 +64,26 @@ function makeLocation(pos) {
 function getTravelTime() {
   const start = makeLocation(fromPos);
   const end = makeLocation(toPos);
-  $.getJSON(routeApiUrl(start, end), (response) => {
-    if (response.travel_time_minutes) {
-      document.querySelector('.js-mins').textContent = `${response.travel_time_minutes} minutes by 🚌`;
-      addUrlToLink(start, end);
-    }
+
+  const startCovered = checkApiCoverage(start);
+  const endCovered = checkApiCoverage(end);
+  Promise.all([startCovered, endCovered])
+  .then(values => {
+    $.getJSON(routeApiUrl(start, end), (response) => {
+      if (response.travel_time_minutes) {
+        document.querySelector('.js-mins').innerHTML = `${response.travel_time_minutes} minutes by 🚌`;
+        addUrlToLink(start, end);
+      }
+    });
+  })
+  .catch((err) => {
+    handleError(err);
   });
+}
+
+function handleError(error) {
+  document.querySelector('.js-mins').innerHTML = `<div>🙅</div> <span style="font-size:1rem">${error}</span>`;
+  citymapperLink.style.display = 'none';
 }
 
 function cityMapperUrl(fromLocation, toLocation) {
