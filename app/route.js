@@ -40,7 +40,6 @@ const getTime = document.querySelector('.js-go');
 getTime.addEventListener('click', getTravelTime);
 
 function routeApiUrl(startcoord, endcoord) {
-  console.log(citymapperApiKey);
   return `https://developer.citymapper.com/api/1/traveltime/?startcoord=${startcoord}&endcoord=${endcoord}&key=${citymapperApiKey}`;
 }
 
