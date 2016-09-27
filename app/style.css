@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #37ab2e;
+}
+
+body, input {
+  font-family: -apple-system,
+               BlinkMacSystemFont,
+               "Segoe UI",
+               Roboto,
+               Helvetica,
+               Arial,
+               sans-serif,
+               "Apple Color Emoji",  /* Emojis*/
+               "Segoe UI Emoji", /* Emojis*/
+               "Segoe UI Symbol"; /* Emojis*/
+}
+
+div,
+button {
+  box-sizing: border-box;
+}
+
+.searches {
+  left: 25px;
+  right: 25px;
+  top: 25px;
+}
+
+.searches input {
+  border: 2px solid #37ab2e;
+}
+
+.from-search:focus {
+  outline: 0;
+  border-color: #2b8825;
+}
+
+.results {
+  top: 60px;
+  left: 30px;
+}
