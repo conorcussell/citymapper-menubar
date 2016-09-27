@@ -40,7 +40,6 @@ const getTime = document.querySelector('.js-go');
 getTime.addEventListener('click', getTravelTime);
 
 function checkApiCoverage(coord) {
-  console.log()
   const url = `https://developer.citymapper.com/api/1/singlepointcoverage/?coord=${coord}&key=${citymapperApiKey}`;
   return new Promise((resolve, reject) => {
     $.getJSON(url, (response) => {
