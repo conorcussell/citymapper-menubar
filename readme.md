@@ -8,7 +8,7 @@ WIP -> this is pretty hacked together right now.
 
 ```
 $ git clone https://github.com/conorcussell/citymapper-menubar.git
-$ cd citymapper
+$ cd citymapper-menubar
 $ npm install
 $ echo "module.exports = { key: 'YOUR_CITYMAPPER_API_KEY' };" >> secrets.js
 $ npm start
