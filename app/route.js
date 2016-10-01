@@ -19,6 +19,20 @@ const googleurl = 'http://maps.googleapis.com/maps/api/geocode/json?address=';
 let fromPos = {};
 let toPos = {};
 
+
+
+function geoLocateUser() {
+  $.getJSON('https://maps.googleapis.com/maps/api/browserlocation/json?browser=chromium&sensor=true', (response) => {
+    if(response.status === 'OK') {
+      fromPos.lat = response.location.lat;
+      fromPos.lng = response.location.lng;
+    }
+  });
+}
+
+geoLocateUser();
+
+
 function getCoordsFromPostCode(postcode, position) {
   $.getJSON(googleurl + postcode, (response) => {
     if (response.results) {
